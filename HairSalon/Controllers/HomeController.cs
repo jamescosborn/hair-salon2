@@ -32,11 +32,13 @@ namespace HairSalon.Controllers
     }
 
     [HttpGet("/stylists/{id}")]
-    public ActionResult StylistDetails(int id)
+    public ActionResult StylistDetail(int id)
     {
-      StylistDetailsModel model = new StylistDetailsModel(id);
-      return View(model);
+      Stylist stylist = Stylist.FindById(id);
+      return View(stylist);
     }
+  }
+}
     //
     // [HttpGet("/stylists/{id}")]
     // public ActionResult StylistDetails(int id)
@@ -56,5 +58,5 @@ namespace HairSalon.Controllers
     //   StylistDetailsModel model = new StylistDetailsModel(stylistId);
     //   return View("StylistDetails", model);
     // }
-  }
-}
+//   }
+// }
