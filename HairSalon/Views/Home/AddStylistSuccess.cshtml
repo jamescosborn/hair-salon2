@@ -1,0 +1,15 @@
+@using HairSalon.Models;
+@{
+  Layout = "_Layout";
+}
+<h1>Stylist added!</h1>
+<h3>Stylists:</h3>
+<ul>
+@{
+  foreach(var Stylist in Model)
+  {
+      <li><a href="/stylists/@Stylist.Id">@Stylist.Name</a></li>
+  }
+}
+</ul>
+<a href='/stylists/add'>Add a new Stylist</a>
