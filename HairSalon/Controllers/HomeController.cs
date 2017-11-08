@@ -56,12 +56,12 @@ namespace HairSalon.Controllers
       return View("UpdateClientSuccess");
     }
 
-    [HttpPost("/stylists/{stylistId}/clients/{clientId}/delete/success")]
-    public ActionResult DeleteClientSuccess(int sylistId, int clientId)
-    {
-      Client.Delete(clientId)
-      return View("DeleteClientSuccess");
-    }
+    // [HttpPost("/stylists/{stylistId}/clients/{clientId}/delete/success")]
+    // public ActionResult DeleteClientSuccess(int sylistId, int clientId)
+    // {
+    //   Client.Delete(clientId);
+    //   return View("DeleteClientSuccess");
+    // }
 
     [HttpGet("/stylists/{stylistId}/clients/new")]
     public ActionResult AddClient(int stylistId)
