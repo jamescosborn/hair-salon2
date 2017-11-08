@@ -3,11 +3,11 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("HairSalon")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("HairSalon.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Package Description")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("HairSalon")]
-[assembly: System.Reflection.AssemblyTitleAttribute("HairSalon")]
+[assembly: System.Reflection.AssemblyProductAttribute("HairSalon.Tests")]
+[assembly: System.Reflection.AssemblyTitleAttribute("HairSalon.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

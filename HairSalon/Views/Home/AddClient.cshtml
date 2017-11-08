@@ -1,0 +1,12 @@
+@{
+  Layout = "_Layout";
+}
+<div class="well">
+<form action="/stylists/@Model["stylist"].Id/clients/add" method="post">
+  <div class="form-group">
+    <label for="client-name">Name:</label>
+    <input class="form-control" id="client-name" name="client-name" type="text" required>
+  </div>
+  <button class="btn btn-danger" type="submit" name="submit-button">Add</button>
+</form>
+</div>

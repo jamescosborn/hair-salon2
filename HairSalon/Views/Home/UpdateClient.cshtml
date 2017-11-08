@@ -1,0 +1,16 @@
+@using HairSalon.Models;
+@{
+  Layout = "_Layout";
+}
+<div class="well">
+<h2>Update</h2>
+  <form action="/stylists/@Model["stylist"].Id/clients/@client.Id/update/success" method="post">
+    <div class="form-group">
+      <label for="client-name">Name:</label>
+      <input class="form-control" id="client-name" name="client-name" type="text" required>
+    </div>
+    <button class="btn btn-danger" type="submit" name="submit-button">Update Name</button>
+  </form>
+<h2>Delete</h2>
+  <a href="/stylists/clients/delete/success">Delete contact<a>
+</div>

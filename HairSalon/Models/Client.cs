@@ -13,8 +13,8 @@ namespace HairSalon.Models
     public Client(string name, int stylistId = 0, int id = 0)
     {
       Name = name;
-      Id = id;
       StylistId = stylistId;
+      Id = id;
     }
 
     // See all Client's belonging to a Stylist
@@ -125,7 +125,7 @@ namespace HairSalon.Models
       conn.Open();
 
       var cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"INSERT INTO clients (name, stylist_id) VALUES (@Name, @StylistId);";
+      cmd.CommandText = @"INSERT INTO clients (name, stylist_id) VALUES (@Name, @stylist_id);";
 
       MySqlParameter name = new MySqlParameter();
       name.ParameterName = "@Name";
@@ -133,7 +133,7 @@ namespace HairSalon.Models
       cmd.Parameters.Add(name);
 
       MySqlParameter stylistId = new MySqlParameter();
-      stylistId.ParameterName = "@StylistId";
+      stylistId.ParameterName = "@stylist_id";
       stylistId.Value = this.StylistId;
       cmd.Parameters.Add(stylistId);
 
@@ -148,7 +148,7 @@ namespace HairSalon.Models
     }
 
     // Updates a Client's Name
-    public void Update(Client newClient)
+    public void Update()
       {
         MySqlConnection conn = DB.Connection();
         conn.Open();
@@ -158,17 +158,17 @@ namespace HairSalon.Models
 
         MySqlParameter newName = new MySqlParameter();
         newName.ParameterName = "@NewName";
-        newName.Value = newClient.Name;
+        newName.Value = Name;
         cmd.Parameters.Add(newName);
 
         MySqlParameter stylistId = new MySqlParameter();
         stylistId.ParameterName = "@NewStylistId";
-        stylistId.Value = newClient.StylistId;
+        stylistId.Value = StylistId;
         cmd.Parameters.Add(stylistId);
 
         MySqlParameter clientId = new MySqlParameter();
         clientId.ParameterName = "@ClientId";
-        clientId.Value = newClient.Id;
+        clientId.Value = clientId;
         cmd.Parameters.Add(clientId);
 
         cmd.ExecuteNonQuery();

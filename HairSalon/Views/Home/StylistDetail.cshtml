@@ -4,24 +4,19 @@
 }
 <div class="well">
 <h1>Stylist Info:</h1>
-<ul>
-<li>Name: @Model["stylist"].Name</li>
-</ul>
+<h2>Name: @Model["stylist"].Name</h2>
 <h2>Clients:</h2>
 
 @{
-  foreach(var client in Model["client"])
+  foreach(var client in Model["clients"])
   {
-    <p>@client.Name</p>
+    <h3> @client.Name </h3>
+    <p><a href="/stylists/@Model["stylist"]/clients/@Model["clients"]/update">Update</a></p>
+    <p><a href="/stylists/clients/delete/success">Delete</a></p>
   }
 }
 
-<h2>Add a new Client:</h2>
-<form action="/stylists/{stylistId}/clients/add" method="post">
-  <div class="form-group">
-    <label for="client-name">Name:</label>
-    <input class="form-control" id="client-name" name="client-name" type="text" required>
-  </div>
-  <button class="btn btn-danger" type="submit" name="submit-button">Add</button>
-</form>
-</div>
+<ul>
+<li><a href="/stylists/@Model["stylist"].Id/clients/new">Add another client</a></li>
+<li><a href="/">Home</a></li>
+</ul>
