@@ -4,13 +4,13 @@
 }
 <div class="well">
 <h2>Update</h2>
-  <form action="/stylists/@Model["stylist"].Id/clients/@client.Id/update/success" method="post">
+  <form action="/stylists/@Model["stylist"].Id/clients/@Model["client"].Id/update/success" method="post">
     <div class="form-group">
-      <label for="client-name">Name:</label>
-      <input class="form-control" id="client-name" name="client-name" type="text" required>
+      <label for="client-update">Name:</label>
+      <input class="form-control" id="client-update" name="client-update" type="text" required>
     </div>
     <button class="btn btn-danger" type="submit" name="submit-button">Update Name</button>
   </form>
 <h2>Delete</h2>
-  <a href="/stylists/clients/delete/success">Delete contact<a>
+  <a href="/stylists/clients/delete/success">Delete contact</a>
 </div>

@@ -38,7 +38,7 @@ namespace HairSalon.Controllers
     }
 
     [HttpGet("/stylists/{stylistId}/clients/{clientId}/update")]
-    public ActionResult UpdateClient(int clientId, int stylistId)
+    public ActionResult UpdateClient(int stylistId, int clientId)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
       Stylist selectedStylist = Stylist.FindById(stylistId);
@@ -52,17 +52,16 @@ namespace HairSalon.Controllers
     public ActionResult UpdateClientSuccess(int clientId)
     {
       Client selectedClient = Client.Find(clientId);
-      selectedClient.Update();
+      selectedClient.Update(Request.Form["new-name"], clientId);
       return View("UpdateClientSuccess");
     }
 
-    // [HttpPost("/stylists/clients/delete/success")]
-    // public ActionResult DeleteClientSuccess(int clientId)
-    // {
-    //   Client selectedClient = Client.Find(clientId);
-    //   selectedClient.Delete();
-    //   return View("DeleteClientSuccess");
-    // }
+    [HttpPost("/stylists/{stylistId}/clients/{clientId}/delete/success")]
+    public ActionResult DeleteClientSuccess(int sylistId, int clientId)
+    {
+      Client.Delete(clientId)
+      return View("DeleteClientSuccess");
+    }
 
     [HttpGet("/stylists/{stylistId}/clients/new")]
     public ActionResult AddClient(int stylistId)

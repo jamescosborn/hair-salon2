@@ -148,27 +148,22 @@ namespace HairSalon.Models
     }
 
     // Updates a Client's Name
-    public void Update()
+    public void Update(string name, int id)
       {
         MySqlConnection conn = DB.Connection();
         conn.Open();
 
         var cmd = conn.CreateCommand() as MySqlCommand;
-        cmd.CommandText = @"UPDATE clients SET name = @NewName, stylist_id = @NewStylistId WHERE id = @ClientId;";
+        cmd.CommandText = @"UPDATE clients SET name = @newName WHERE id = @clientId;";
 
         MySqlParameter newName = new MySqlParameter();
-        newName.ParameterName = "@NewName";
-        newName.Value = Name;
+        newName.ParameterName = "@newName";
+        newName.Value = name;
         cmd.Parameters.Add(newName);
 
-        MySqlParameter stylistId = new MySqlParameter();
-        stylistId.ParameterName = "@NewStylistId";
-        stylistId.Value = StylistId;
-        cmd.Parameters.Add(stylistId);
-
         MySqlParameter clientId = new MySqlParameter();
-        clientId.ParameterName = "@ClientId";
-        clientId.Value = clientId;
+        clientId.ParameterName = "@clientId";
+        clientId.Value = id;
         cmd.Parameters.Add(clientId);
 
         cmd.ExecuteNonQuery();
