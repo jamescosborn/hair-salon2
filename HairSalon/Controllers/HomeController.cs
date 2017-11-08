@@ -51,9 +51,12 @@ namespace HairSalon.Controllers
     [HttpPost("/stylists/{stylistId}/clients/{clientId}/update/success")]
     public ActionResult UpdateClientSuccess(int clientId)
     {
-      int newClientId = int.Parse(Request.Form["client-id"]);
+      Console.WriteLine(clientId);
+
       Client selectedClient = Client.Find(clientId);
-      selectedClient.Update(Request.Form["client-update"], newClientId);
+      selectedClient.Update(Request.Form["client-update"]);
+      Console.WriteLine(selectedClient.Name);
+      Console.WriteLine(Request.Form["client-update"]);
       return View();
     }
 

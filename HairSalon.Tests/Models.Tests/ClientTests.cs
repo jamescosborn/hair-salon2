@@ -78,13 +78,11 @@ namespace HairSalon.Models.Tests
     {
       Client initialClient = new Client("Tony", 0);
       initialClient.Save();
-      Client newClient = new Client("Ronnie", 0, initialClient.Id);
-      initialClient.Update(newClient);
+      initialClient.Update("Tom");
       Client updatedClient = Client.Find(initialClient.Id);
 
-      bool result = updatedClient.HasSamePropertiesAs(newClient);
 
-      Assert.AreEqual(true, result);
+      Assert.AreEqual("Tom", updatedClient.Name);
     }
 
     [TestMethod]

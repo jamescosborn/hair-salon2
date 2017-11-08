@@ -148,7 +148,7 @@ namespace HairSalon.Models
     }
 
     // Updates a Client's Name
-    public void Update(string name, int id)
+    public void Update(string name)
       {
         MySqlConnection conn = DB.Connection();
         conn.Open();
@@ -163,7 +163,7 @@ namespace HairSalon.Models
 
         MySqlParameter clientId = new MySqlParameter();
         clientId.ParameterName = "@clientId";
-        clientId.Value = id;
+        clientId.Value = Id;
         cmd.Parameters.Add(clientId);
 
         cmd.ExecuteNonQuery();
