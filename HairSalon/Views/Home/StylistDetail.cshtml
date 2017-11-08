@@ -10,9 +10,15 @@
 @{
   foreach(var client in Model["clients"])
   {
-    <h3> @client.Name </h3>
-    <p><a href="/stylists/@Model["stylist"].Id/clients/@client.Id/update">Update</a></p>
-    <p><a href="/stylists/@Model["stylist"].Id/clients/@client.Id/delete/success">Delete</a></p>
+    <h3>@client.Name</h3>
+    <p>
+      <a href="/stylists/@Model["stylist"].Id/clients/@client.Id/update">Update</a>
+    </p>
+    <p>
+      <form action="/stylists/@Model["stylist"].Id/clients/@client.Id/delete/success" method="post">
+      <button class="btn btn-danger" type="submit" name="submit-button">Delete</button>
+      </form>
+    </p>
   }
 }
 

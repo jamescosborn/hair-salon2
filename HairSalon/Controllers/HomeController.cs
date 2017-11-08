@@ -60,7 +60,7 @@ namespace HairSalon.Controllers
       return View();
     }
 
-    [HttpGet("/stylists/{stylistId}/clients/{clientId}/delete/success")]
+    [HttpPost("/stylists/{stylistId}/clients/{clientId}/delete/success")]
     public ActionResult DeleteClientSuccess(int clientId)
     {
       Client.Delete(clientId);
