@@ -45,23 +45,24 @@ namespace HairSalon.Controllers
       Client selectedClient = Client.Find(clientId);
       model.Add("stylist", selectedStylist);
       model.Add("client", selectedClient);
-      return View();
+      return View(model);
     }
 
     [HttpPost("/stylists/{stylistId}/clients/{clientId}/update/success")]
     public ActionResult UpdateClientSuccess(int clientId)
     {
+      int newClientId = int.Parse(Request.Form["client-id"]);
       Client selectedClient = Client.Find(clientId);
-      selectedClient.Update(Request.Form["new-name"], clientId);
-      return View("UpdateClientSuccess");
+      selectedClient.Update(Request.Form["client-update"], newClientId);
+      return View();
     }
 
-    // [HttpPost("/stylists/{stylistId}/clients/{clientId}/delete/success")]
-    // public ActionResult DeleteClientSuccess(int sylistId, int clientId)
-    // {
-    //   Client.Delete(clientId);
-    //   return View("DeleteClientSuccess");
-    // }
+    [HttpPost("/stylists/{stylistId}/clients/{clientId}/delete/success")]
+    public ActionResult DeleteClientSuccess(int clientId)
+    {
+      Client.Delete(clientId);
+      return View();
+    }
 
     [HttpGet("/stylists/{stylistId}/clients/new")]
     public ActionResult AddClient(int stylistId)
